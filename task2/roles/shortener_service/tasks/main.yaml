@@ -1,0 +1,20 @@
+- name: mkdir
+  file:
+    path: "~/.service/shortener/"
+    state: directory
+    mode: 0777
+    recurse: yes
+
+- name: clone
+  git:
+    repo: "https://github.com/amanakin/shortener.git"
+    dest: "~/.service/shortener/"
+    version: master
+    clone: yes
+    update: yes
+    force: yes
+
+- name: run service
+  command:
+    cmd: docker-compose up -d
+    chdir: "~/.service/shortener/"

@@ -11,7 +11,7 @@
 
     - name: git clone
       git:
-        repo: https://github.com/amanakin/monitor_script.git
+        repo: "https://github.com/amanakin/monitor_script.git"
         dest: "./.service/monitor_service"
         version: master
         clone: yes
